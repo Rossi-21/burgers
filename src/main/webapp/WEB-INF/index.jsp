@@ -27,9 +27,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td></td>
-				</tr>
+				<c:forEach var="burgers" items = "${burgers}">
+					<tr>
+						<td><c:out value="${burgers.name}"></c:out></td>
+						<td><c:out value="${burgers.restaurant}"></c:out></td>
+						<td><c:out value="${burgers.rating}"></c:out></td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 		<h1>Create a Burger</h1>
@@ -54,9 +58,9 @@
 	    			<form:textarea path="notes" cols="20" rows="3"></form:textarea>
 	    			<form:errors class="text-danger" path="notes"/>
 	    		</div>
+	    		<input type="submit" value="Submit"/>
 	    	</div>
-	    	<p>Send and show a friend</p>
-	    	<input type="submit" value="Submit"/>
+	    	
 	    </form:form>
 	</div>
 </body>
