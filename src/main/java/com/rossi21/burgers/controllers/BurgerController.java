@@ -23,7 +23,7 @@ public class BurgerController {
 		BurgerService burgerService;
 		
 	    @RequestMapping("/")
-	    public String books(Model model, @ModelAttribute("burger") Burger burger) {
+	    public String index(Model model, @ModelAttribute("burger") Burger burger) {
 	    	List<Burger> burgers = burgerService.allBurgers();
 	        model.addAttribute("burgers", burgers);
 	        return "index.jsp";
