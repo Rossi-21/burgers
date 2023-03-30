@@ -15,15 +15,16 @@
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 	<title>Burger Tracker</title>
 </head>
-<body>
-	<div class="mx-auto" style="width:300px;">
-		<h1>Big Mac!</h1>
-		<table class="table table-dark">
+<body style="background-color:#DA291C; color:#27251F">
+	<div class="mx-auto mt-5 p-3 border border-3 border-dark rounded" style="width:500px; background-color:#FFC72C;">
+		<h1>Big Mac's Burger Tracker!</h1>
+		<table class="table table-hover table-borderless" style="background-color:;">
 			<thead>
 				<tr>
 					<th>Name</th>
 					<th>Restaurant</th>
 					<th>Rating</th>	
+					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -32,33 +33,38 @@
 						<td><c:out value="${burgers.name}"></c:out></td>
 						<td><c:out value="${burgers.restaurant}"></c:out></td>
 						<td><c:out value="${burgers.rating}"></c:out></td>
+						<td><a href="/burgers/${burgers.id}/edit">edit</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 		<h1>Create a Burger</h1>
-		<form:form class="p-4 border border-3 border-dark" action="/burgers" method="post" modelAttribute="burger">
+		<form:form class="" action="/burgers" method="post" modelAttribute="burger">
 			<div>
-				<form:label path='name'>Burger Name:</form:label>
+				<form:label class="fw-bold mt-2 form-label" path='name'>Burger Name:</form:label>
 				<form:errors class="text-danger" path="name"/>
-	   			<form:input path='name'/>
+	   			<form:input class="form-control" path='name'/>
 			</div>
 			<div>
-				<form:label path='restaurant'>Restaurant Name:</form:label>
+				<form:label class="fw-bold mt-2 form-label" path='restaurant'>Restaurant Name:</form:label>
 				<form:errors class="text-danger" path="restaurant"/>
-	    		<form:input path='restaurant'/>
+				<form:input class="form-control" path='restaurant'/>	    		
 			</div>
 			<div>
-				<form:label path='rating'>Rating:</form:label>
+				<form:label class="fw-bold mt-2 form-label" path='rating'>Rating:   </form:label>
 				<form:errors class="text-danger" path="rating"/>
-	    		<form:input type='number' path='rating'/>
+				<form:input class="form-control" type='number' path='rating'/>
+					
+				
+	    		
 			</div>
-	    		<form:label path="notes">Notes:</form:label>
-	    		<div>
-	    			<form:textarea path="notes" cols="20" rows="3"></form:textarea>
-	    			<form:errors class="text-danger" path="notes"/>
-	    		</div>
-	    		<input type="submit" value="Submit"/>
+   			
+    		<div>
+    			<form:label class="fw-bold mt-2 form-label" path="notes">Notes:</form:label>
+    			<form:errors class="text-danger" path="notes"/>
+    			<form:textarea class="form-control" path="notes" cols="20" rows="3"></form:textarea>
+    		</div>
+    		<input class="mt-3 border border-dark rounded" type="submit" value="Submit"/>
 	    	</div>
 	    	
 	    </form:form>

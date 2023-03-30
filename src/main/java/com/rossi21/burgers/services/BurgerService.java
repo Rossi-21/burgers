@@ -8,22 +8,22 @@ import com.rossi21.burgers.models.Burger;
 import com.rossi21.burgers.repositories.BurgerRepository;
 @Service  
 public class BurgerService {
-	 // adding the book repository as a dependency
+	 // adding the burger repository as a dependency
     private final BurgerRepository burgerRepository;
     
     public BurgerService(BurgerRepository burgerRepository) {
         this.burgerRepository = burgerRepository;
     }
-    // returns all the books
+    // returns all the burger's
     public List<Burger> allBurgers() {
         return burgerRepository.findAll();
     }
-    // creates a book
+    // creates a burger
     public Burger createBurger(Burger b) {
         return burgerRepository.save(b);
     }
-    // retrieves a book
-    public Burger findBook(Long id) {
+    // retrieves a burger
+    public Burger findBurger(Long id) {
         Optional<Burger> optionalBurger = burgerRepository.findById(id);
         if(optionalBurger.isPresent()) {
             return optionalBurger.get();
@@ -32,11 +32,9 @@ public class BurgerService {
         }
     }
 	public Burger updateBurger(Burger b) {
-		// TODO Auto-generated method stub
 		return burgerRepository.save(b);
 	}
 	public void deleteBurger(Long id) {
-		// TODO Auto-generated method stub
 		  burgerRepository.deleteById(id);
 	}
 }
